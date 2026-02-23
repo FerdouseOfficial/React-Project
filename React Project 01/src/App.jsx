@@ -1,7 +1,7 @@
 import React from "react";
 import Cards from "./assets/components/cards";
 
-const App = (props) => {
+const App = () => {
   const jobOpenings = [
     {
       brandLogo:
@@ -116,7 +116,11 @@ const App = (props) => {
   ];
   return (
     <div className="parent">
-      <Cards />
+      {
+        jobOpenings.map(function(ele) {
+          return <Cards brandLogo={ele.brandLogo} companyName={ele.companyName} datePosted={ele.datePosted} jobPosition={ele.jobPosition} tag1={ele.tag1} tag2={ele.tag2} payments={ele.payments} location={ele.location}/>
+        })
+      }
     </div>
   );
 };
